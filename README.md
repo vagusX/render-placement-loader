@@ -2,9 +2,7 @@
 
 	npm install render-placement-loader
 
-This will add React.render(React.createElement(Component),document.body) to your jsx for you.
-It will also replace React.render(class,document.getElementById('blah')) with document.body if it exists.
-
+This will add React.render(React.createElement(Component),document.getElementById('id')) to your jsx for you.
 
 You can also pass an optional `props` object via the query.
 
@@ -17,9 +15,10 @@ You can also pass an optional `props` object via the query.
     {
         test: /\.jsx$/,
         loader: 'render-placement-loader',
-        query: { 
+        query: {
         	props: { foo: 'bar' },
-        	component: 'ComponentName'
+        	component: 'ComponentName',
+          id: 'root'
         }
     }
 
