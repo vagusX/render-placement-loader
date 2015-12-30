@@ -13,7 +13,7 @@ module.exports = function(source) {
 
   var getClazz = 'var clazz = ' + clazz + ';';
   var checkClazz = 'if (!clazz || clazz.prototype.render === undefined) { throw new Error("no valid component specified"); }'
-  var componentElement = 'React.createElement(clazz,' + JSON.stringify(props) + ')';
+  var componentElement = 'require("react").createElement(clazz,' + JSON.stringify(props) + ')';
   var render = 'require("react-dom").render(' + componentElement + ', document.getElementById("' + query.id  + '"));';
 
   var doRender = '{(function() {' + getClazz + checkClazz + render + '})();}';
